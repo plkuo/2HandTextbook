@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>台大二手書平台</title>
+    <link rel="shortcut icon" href="2ndHandIcon.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    body {
+        padding-bottom: 20px;
+        padding-top: 50px;
+        background-color: #EEEEEE;
+    }
+
+    p {
+        font-size: 16px;
+    }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sellBook.css">
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+            <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">台大二手書交易平台</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">我要買書</a></li>
+                    <li><a href="wanttosellbook.html">我要賣書</a></li>
+                    <li class="active"><a>聯絡我們</a></li>
+                </ul>
+                <div>
+                    <div class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input id="sellerContactInput" type="text" placeholder="賣家聯絡方式" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input id="bookPasswordInput" type="password" placeholder="書籍密碼" class="form-control">
+                        </div>
+                        <button id="sellerBookSearchButton" type="submit" class="btn btn-success">收尋賣家書籍</button>
+                    </div>
+                </div>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>DEMO!</h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">作品理念</div>
+                    <div class="panel-body">
+                        <p>校內+二手+教科書 交易平台</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">團隊夥伴</div>
+                    <div class="panel-body">
+                        <p>由左至右</p>
+                        <p>周彥宇:台大電機畢 傭兵</p>
+                        <p>郭倍豊:台大工科 研究生</p>
+                        <p>楊昌儒:台大農經畢 Office Lady</p>
+                        <img src='img/3person.jpg' width=100%>
+                        <p>躺在鍵盤上的貓
+                            <img src='img/3cats.jpg' width=100%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">開發流程</div>
+                    <div class="panel-body">
+                        <p>紙上畫草圖</p>
+                        <p>設想簡單功能</p>
+                        <p>分工</p>
+                        <p>門面 HTML CSS: boostrap</p>
+                        <p>功能 Javascript: firebase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">遇到困難以及如何解決</div>
+                    <div class="panel-body">
+                        <h3>困難一二三</h3>
+                        <ol>
+                            <li>為了一個簡單的功能忙半天沒有成效</li>
+                            <li>新工具上手需要時間</li>
+                            <li>規劃進度時程表:規劃和結果完全不一樣， 不過如果沒有連要從何開始 ，要走去哪裡都不知道</li>
+                        </ol>
+                        <br>
+                        </br>
+                        <!-- abv -->
+                        <pre>
+
+							&lt;script&gt;
+
+							    while(有問題){
+
+							        學習工具 = 找一個現成的工具(問題類別);
+							        if(上手時間(學習工具) > 一個月){
+							            alert(“目前這一個問題可能太困難了，要不要考慮替代方案？”);
+							            return;
+							        }
+							        解決問題(學習工具);
+							    }
+							&lt;/script&gt;
+
+					</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <br>
+        <footer>
+            <p>&copy; Company 2013</p>
+        </footer>
+    </div>
+    <!-- /container -->
+    <iframe style="display:none;" name="a" width: "10" height="10"></iframe>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    < script > window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')
+    </script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
