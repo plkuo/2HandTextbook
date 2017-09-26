@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>台大二手書平台</title>
+    <link rel="shortcut icon" href="2ndHandIcon.png">
+    <meta name="description" content="台大二手書交易平台">
+    <meta name="viewport" content="width=device-width">
+    <meta name="keywords" content="二手書,台大">
+    <link rel="stylesheet" href="css/bootstrap2.css">
+    <link rel="stylesheet" href="css/tamplate.css">
+    <style>
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        background-color: #eeeeee;
+        margin: 0;
+        padding-left: 10px;
+        height: 700px;
+    }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">台大二手書交易平台</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">我要買書</a></li>
+                    <li><a href="wanttosellbook.html">我要賣書</a></li>
+                    <li><a href="cantactUs.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class='jumbotron' style="height:200px">
+        <h1>台大二手書交易平台</h1>
+        <h2>2nd Hand Textbook in NTU</h2>
+    </div>
+    <div class="container">
+        <div class='row'>
+            <div class=" col-xs-8 col-xs-offset-4 col-md-8 col-md-offset-4 col-lg-8 col-lg-offset-4 col-sm-8 col-sm-offset-4">
+                <input type="text" id="form-control" placeholder="Search" style=' padding:0; width:250px;height:25px'>
+                <button id="searchBookData" class="btn btn-primary" onClick="searchBook()">搜尋</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div id="hoho" class="col-md-8 col-md-offset-2" style='z-index:1'>
+                <ul class="navigation" style="text-align:middle;margin-top:20px" align=center>
+                    <li><a><span>學院</span></a>
+                        <ul>
+                            <li><a><span>電機資訊學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>電機工程學系</span></a></li>
+                                    <li><a class="department"><span>資訊工程學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>工學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>土木工程學系</span></a></li>
+                                    <li><a class="department"><span>機械工程學系</span></a></li>
+                                    <li><a class="department"><span>化學工程學系</span></a></li>
+                                    <li><a class="department"><span>工程科學及海洋工程學系</span></a></li>
+                                    <li><a class="department"><span>材料科學與工程學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>文學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>中國文學系</span></a></li>
+                                    <li><a class="department"><span>外國語文學系</span></a></li>
+                                    <li><a class="department"><span>歷史學系</span></a></li>
+                                    <li><a class="department"><span>哲學系</span></a></li>
+                                    <li><a class="department"><span>人類學系</span></a></li>
+                                    <li><a class="department"><span>圖資學系</span></a></li>
+                                    <li><a class="department"><span>日本語文學系</span></a></li>
+                                    <li><a class="department"><span>戲劇學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>公衛學院與醫學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>公共衛生學系</span></a></li>
+                                    <li><a class="department"><span>獸醫學系</span></a></li>
+                                    <li><a class="department"><span>牙醫學系</span></a></li>
+                                    <li><a class="department"><span>藥學系</span></a></li>
+                                    <li><a class="department"><span>醫學系</span></a></li>
+                                    <li><a class="department"><span>護理學系</span></a></li>
+                                    <li><a class="department"><span>醫學檢驗暨生物技術學系</span></a></li>
+                                    <li><a class="department"><span>物理治療學系</span></a></li>
+                                    <li><a class="department"><span>職能治療學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>理學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>數學系</span></a></li>
+                                    <li><a class="department"><span>物理學系</span></a></li>
+                                    <li><a class="department"><span>化學系</span></a></li>
+                                    <li><a class="department"><span>地質學系</span></a></li>
+                                    <li><a class="department"><span>心理學系</span></a></li>
+                                    <li><a class="department"><span>地理環境資源學系</span></a></li>
+                                    <li><a class="department"><span>大氣科學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>生命科學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>生命科學系</span></a></li>
+                                    <li><a class="department"><span>生化科技學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>管理學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>工商管理學系</span></a></li>
+                                    <li><a class="department"><span>會計學系</span></a></li>
+                                    <li><a class="department"><span>財務金融學系</span></a></li>
+                                    <li><a class="department"><span>國際企業學系</span></a></li>
+                                    <li><a class="department"><span>資訊管理學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>生物資源暨農學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>農藝學系</span></a></li>
+                                    <li><a class="department"><span>生物環境系統工程學系</span></a></li>
+                                    <li><a class="department"><span>農業化學系</span></a></li>
+                                    <li><a class="department"><span>森林環境暨資源學系</span></a></li>
+                                    <li><a class="department"><span>動物科學技術學系</span></a></li>
+                                    <li><a class="department"><span>農業經濟學系</span></a></li>
+                                    <li><a class="department"><span>園藝暨景觀學系</span></a></li>
+                                    <li><a class="department"><span>生物產業傳播暨發展學系</span></a></li>
+                                    <li><a class="department"><span>昆蟲學系</span></a></li>
+                                    <li><a class="department"><span>植物病理與微生物學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a><span>社會科學與法律學院</span></a>
+                                <ul>
+                                    <li><a class="department"><span>政治學系</span></a></li>
+                                    <li><a class="department"><span>經濟學系</span></a></li>
+                                    <li><a class="department"><span>社會學系</span></a></li>
+                                    <li><a class="department"><span>社會工作學系</span></a></li>
+                                    <li><a class="department"><span>法律學系</span></a></li>
+                                    <li><a class="department"><span>研究所</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a><span>共同科目</span></a>
+                        <ul>
+                            <li><a class='common'><span>國文</span></a></li>
+                            <li><a class='common'><span>英文</span></a></li>
+                            <li><a class='common'><span>微積分</span></a></li>
+                            <li><a class='common'><span>其他</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a class='general'><span>通識課程</span></a></li>
+            </div>
+        </div>
+    </div>
+    <div style='height:30px;width:30px'></div>
+    <div class='row'>
+        <div style="margin-left:auto;width=70%">
+            <table id="search" class="table-bordered" align=center width=80%>
+                <tr align=center>
+                    <td width:70px>學系/年級</td>
+                    <td width:70px>課程</td>
+                    <td width:70px>書名</td>
+                    <td width:70px>作者</td>
+                    <td width:70px>價格</td>
+                    <td width:70px>賣家</td>
+                    <td width:70px>交易方式</td>
+                    <td width:70px></td>
+                </tr>
+            </table>
+            <div class='row'>
+                <div style='margin-left:auto;margin-right:auto;'>
+                    <table align=center class='table' style='width:180px'>
+                        <tr>
+                            <td>
+                                <button id="prePage" onClick="onPrePage()" disabled>上一頁</button>
+                            </td>
+                            <td id="page" style='margin-left:auto;'>1</td>
+                            <td>
+                                <button id="nextPage" onClick="onNextPage()" disabled>下一頁</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')
+    </script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/controlCss.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>
